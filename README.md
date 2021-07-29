@@ -31,7 +31,7 @@ Crear la imagen para el contenedor Apache.
 * Ponerle un nombre a la imagen, ejemplo [nombre de imagen]:latest, donde latest es el número de versiones que tiene la imagen. (Se puede quedar así ese campo.)
 # PASO 6.
 Crear el contenedor Apache.
-* docker run -p 80:80 --name Webcrud -d webcrud:latest --network=host 
+* docker run --name Webcrud -d webcrud:latest --network=host 
 # PASO 7.
 Configurar el contenedor de la página.
 * docker exec -it Webcrud /bin/bash
@@ -54,3 +54,14 @@ Comprobar el funcionamiento del Contenedor.
 
 *Nota: En Visual Studio Code debe tener instalada la extensión Docker.*
 ![Alt text](https://github.com/vh2212/Dockerfile-PHP-Apache-conectado-a-contenedor-MySQL/blob/main/Captura%20de%20pantalla%20de%202020-11-02%2015-42-52.png)
+
+
+### Otros comandos.
+netstat -pna | grep 53
+docker build -t bind9 .
+sudo docker run --name dns --network=host bind9
+sudo docker run --name dns --network=host -it bind9 /bin/bash
+
+sudo docker build -t ftp .
+docker run --name vsftpd -it --network=host ftp
+
