@@ -64,4 +64,16 @@ sudo docker run --name dns --network=host -it bind9 /bin/bash
 
 sudo docker build -t ftp .
 docker run --name vsftpd -it --network=host ftp
+nano /etc/vsftpd.conf
+mkdir –p /bin/ftp
+nano /etc/shells
+* agregar /bin/ftp
+mkdir –p /home/ftp/Victor
+chmod -R 777 /home/ftp/Victor/
+useradd -g ftp -d /home/ftp/Victor/ -c Victor Victor
+passwd Victor
+nano /etc/passwd
+Victor:x:1000:101:Victor:/home/ftp/Victor/:/bin/ftp
+/etc/init.d/vsftpd start
+
 
